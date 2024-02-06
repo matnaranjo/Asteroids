@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AsteroidEnable : MonoBehaviour
 {
+    GameObject [] asteroids;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        EnableAsteroid();
+        asteroids = GameObject.FindGameObjectsWithTag("big");
+        // EnableAsteroid();
     }
 
     // Update is called once per frame
@@ -16,11 +19,11 @@ public class AsteroidEnable : MonoBehaviour
         
     }
 
-    void EnableAsteroid(){
-        Transform[] asteroids = GetComponentsInChildren<Transform>();
-        foreach (Transform asteroid in asteroids)
+    public void EnableAsteroidLevel(){
+        Debug.Log("end level" + asteroids.Length);
+        foreach (GameObject asteroid in asteroids)
         {
-            asteroid.gameObject.SetActive(true);
+            asteroid.SetActive(true);
         }
     }
 }

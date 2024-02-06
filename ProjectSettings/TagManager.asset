@@ -10,6 +10,14 @@ TagManager:
   - bullet
   - ammo
   - shot
+  - deadAsteroid
+  - limits
+  - asteroidbig
+  - big
+  - medium
+  - small
+  - asteroidmedium
+  - asteroidsmall
   layers:
   - Default
   - TransparentFX

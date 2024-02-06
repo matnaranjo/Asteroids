@@ -49,4 +49,14 @@ public class BulletMovement : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other){
+
+        bool isAsteroid = other.CompareTag("big") || other.CompareTag("medium") || other.CompareTag("small");
+        if (isAsteroid){
+            Transform ammo = GameObject.FindGameObjectWithTag("ammo").transform;
+            gameObject.transform.SetParent(ammo);
+            gameObject.SetActive(false);
+        }
+    }
 }
