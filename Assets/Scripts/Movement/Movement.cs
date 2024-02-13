@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     Rigidbody2D playerRB;
 
     Vector3 components;
+
+    Animator anim;
     public Vector3 Components{
         get{return components;}
     }
@@ -31,6 +33,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         playerRB = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,12 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void PlayerMovement(){
         Vector3 dir = playerInputs.Player.Movement.ReadValue<Vector2>();
+        if (dir.x!=0 || dir.y!=0){
+            anim.SetBool("isAccel", true);
+        }
+        else{
+            anim.SetBool("isAccel", false);
+        }
         playerRB.AddForce(dir*step, ForceMode2D.Force);
     }
 

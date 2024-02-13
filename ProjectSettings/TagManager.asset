@@ -18,6 +18,15 @@ TagManager:
   - small
   - asteroidmedium
   - asteroidsmall
+  - Ground
+  - floor
+  - gamemanager
+  - enemy
+  - player
+  - range
+  - enemyattacking
+  - enemystorage
+  - orb
   layers:
   - Default
   - TransparentFX
